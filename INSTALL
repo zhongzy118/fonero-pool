@@ -1,0 +1,14 @@
+apt-get apt-get update -y && apt-get upgrade -y && apt-get dist-upgrade -y
+apt-get update -y && apt-get upgrade -y && apt-get dist-upgrade -y
+apt-get install git curl build-essential cmake pkg-config libboost-all-dev libssl-dev libzmq3-dev libunbound-dev libminiupnpc-dev libunwind8-dev liblzma-dev libreadline6-dev libldns-dev libexpat1-dev libgtest-dev doxygen graphviz ntpdate
+ln -sf /usr/share/zoneinfo/Europe/Moscow /etc/localtime
+ntpdate -u pool.ntp.org
+curl https://raw.githubusercontent.com/creationix/nvm/v0.11.1/install.sh | bash
+source ~/.nvm/nvm.sh
+nvm install v0.10
+cd /opt
+git clone https://github.com/fonero-project/fonero-pool
+cd fonero-pool
+npm install -g pm2
+npm update
+pm2 start init.js
